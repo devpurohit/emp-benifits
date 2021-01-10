@@ -1,0 +1,44 @@
+{
+  "companies": [
+    {
+      "id": "1",
+      "name": "Adobe",
+      "website": "www.adobe.com",
+      "employeeCount": 2300,
+      "benifits": {
+        "healthInsurance": {
+          "isProvided": true,
+          "sumCovered": 300000,
+          "familyCovered": true,
+          "parentsCovered": true,
+          "maternityAssist": true
+        },
+        "gymMembership": true,
+        "freeDOC": true,
+        "numberOfPaidLeaves": 21,
+        "isWorkTimingFlexible": false,
+        "isRemoteFriendly": false
+      }
+    },
+    {
+      "id": "_8ogCSfENc96WSShL1d7o",
+      "name": "Gitlab",
+      "website": "www.gitab.com",
+      "employeeCount": 104,
+      "benifits": {
+        "gymMembership": true,
+        "freeDOC": false,
+        "numberOfPaidLeaves": 21,
+        "isWorkTimingFlexible": false,
+        "isRemoteFriendly": true,
+        "healthInsurance": {
+          "isProvided": true,
+          "sumCovered": 10000,
+          "familyCovered": false,
+          "parentsCovered": true,
+          "maternityAssist": true
+        }
+      }
+    }
+  ]
+}
