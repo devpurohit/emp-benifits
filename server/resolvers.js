@@ -1,11 +1,16 @@
 import companyModel from './models/company';
+import userModel from './models/user';
 import { nanoid } from 'nanoid';
+import user from './models/user';
 
 const resolvers = {
 
   Query: {
     company() {
       return companyModel.list()
+    },
+    user() {
+      return userModel.list()
     }
    },
    Mutation: {
@@ -31,6 +36,15 @@ const resolvers = {
           }
         }
         return companyModel.create(newCompany);
+      },
+      createUser(source, args) {
+        const newUser = {
+          id: nanoid(),
+          name: args.user.name,
+          email: args.user.email,
+          company: args.user.company
+        }
+        return userModel.create(newUser);
       }
    }
   }

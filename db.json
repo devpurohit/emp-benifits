@@ -5,6 +5,7 @@
       "name": "Adobe",
       "website": "www.adobe.com",
       "employeeCount": 2300,
+      "industry": "IT",
       "benifits": {
         "healthInsurance": {
           "isProvided": true,
@@ -39,6 +40,14 @@
           "maternityAssist": true
         }
       }
+    }
+  ],
+  "users": [
+    {
+      "id": "qkZNPURV_QplQmOggyY57",
+      "name": "Rahul",
+      "email": "rahul@purohit.com",
+      "company": "Byldd"
     }
   ]
 }

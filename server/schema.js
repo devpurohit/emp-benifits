@@ -5,7 +5,13 @@ const typeDefs = gql`
     id: ID!
     name: String
     email: String
-    company: Company
+    company: String
+  }
+
+  input UserInput {
+    name: String
+    email: String
+    company: String
   }
 
   type HealthInsurance {
@@ -26,11 +32,11 @@ const typeDefs = gql`
     }
 
   type Company {
-    id: ID!
     name: String
     website: String
     employeeCount: Int
     benifits: Benifits
+    industry: Industry
   }
 
   input CompanyInput {
@@ -57,6 +63,13 @@ const typeDefs = gql`
         isRemoteFriendly: Boolean
   }
 
+  enum Industry {
+    IT
+    HEALTH
+    AUTO
+    FINANCE
+  }
+
   type Query {
     user: [User]
     company: [Company]
@@ -64,6 +77,7 @@ const typeDefs = gql`
   
   type Mutation {
     createCompany(company: CompanyInput!): Company
+    createUser(user: UserInput!): User
   }
 `
 

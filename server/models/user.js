@@ -11,6 +11,10 @@ class User {
     return this.api.get('/users').then(res => res.data)
   }
 
+  create(data) {
+    return this.api.post('/users', data).then(res => res.data)
+  }
+
 }
 
 export default new User()
