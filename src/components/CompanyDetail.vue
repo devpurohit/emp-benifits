@@ -1,20 +1,28 @@
 <template lang="">
     <div>
-        {{companyId}}
+        {{state.companyId}}
     </div>
 </template>
 <script>
-
+// import { useQuery, useResult } from '@vue/apollo-composable'
+import { reactive } from 'vue'
+import { useRoute } from 'vue-router'
 export default {
     name: 'CompanyDetail',
-    
-    data() {
+    setup() {
+        const state = reactive({
+            companyId: '',
+            companyDetails: {} 
+        });
+        const route = useRoute()
+        state.companyId = route.params.companyId
+        console.log(route.params.companyId,'lol')
+
+
         return {
-            companyId: String
+            state
         }
-    },
-    mounted() {
-        this.companyId = this.$route.params.companyId;
+        
     }
     
 }

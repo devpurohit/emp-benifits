@@ -1,36 +1,180 @@
 <template lang="">
-    <div class="short-width mx-auto">
-        <form @submit.prevent="enterUser">
+    <div class="short-width mx-auto" >
+        <form @submit.prevent="enterUser" v-if="state.onStep1">
             <div class="form-group">
-                <input type="text" class="form-control" id="employeeName" placeholder="Name" v-model="state.name">
+                <input type="text" class="form-control" id="userName" placeholder="Name" v-model="state.user.name">
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" id="employeeEmail" placeholder="Email" v-model="state.email">
+                <input type="text" class="form-control" id="userCompany" placeholder="Company" v-model="state.user.company">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="userEmail" placeholder="Email" v-model="state.user.email">
             </div>
             <button class="btn btn-primary" >Submit</button>
+        </form>
+        <form @submit.prevent="enterCompany" v-if="state.onStep2">
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" placeholder="Name" v-model="state.company.name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="website" placeholder="Website" v-model="state.company.website">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="employeeCount" placeholder="Employee Count" v-model="state.company.employeeCount">
+            </div>
+            <div class="form-group">
+                <select class="form-control" id="industrySelect">
+                    <option disabled selected="selected"> Select Industry</option>
+                    <option value='IT'>IT</option>
+                    <option value='HEALTH'>Health</option>
+                    <option value='AUTO'>Automobile</option>
+                    <option value='FINANCE'>Finance</option>
+                </select>
+                
+            </div>
+
+            <hr>
+
+            <h5>Employee Benifits</h5>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="healthInsurance" v-model="state.company.benifits.healthInsurance.isProvided">
+                <label class="form-check-label" for="healthInsurance">Health Insurance</label>
+            </div>
+                    <div class="health-benifits" v-if="state.company.benifits.healthInsurance.isProvided">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="familyCovered" v-model="state.company.benifits.healthInsurance.familyCovered">
+                            <label class="form-check-label" for="familyCovered">Family Covered</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="parentsCovered" v-model="state.company.benifits.healthInsurance.parentsCovered">
+                            <label class="form-check-label" for="parentsCovered">Parents Covered</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="maternityAssist" v-model="state.company.benifits.healthInsurance.maternityAssist">
+                            <label class="form-check-label" for="maternityAssist">Maternity Assistance</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="sumCovered" placeholder="Sum Covered" v-model="state.company.benifits.healthInsurance.sumCovered">
+                        </div>
+                    </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="gymMembership" v-model="state.company.benifits.gymMembership">
+                <label class="form-check-label" for="gymMembership">Gym Membership</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="freeDOC" v-model="state.company.benifits.freeDOC">
+                <label class="form-check-label" for="freeDOC">Free Doctor on call</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="flexibleTiming" v-model="state.company.benifits.isWorkTimingFlexible">
+                <label class="form-check-label" for="flexibleTiming">Flexible work timings</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="remoteFriendly" v-model="state.company.benifits.isRemoteFriendly">
+                <label class="form-check-label" for="remoteFriendly">Remote Friendly</label>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="paidLeaves" placeholder="Paid Leaves" v-model="state.company.benifits.numberOfPaidLeaves">
+            </div>
+            <button class="btn btn-primary" >Submit</button>
+
         </form>
     </div>
 </template>
 <script>
 import { reactive } from 'vue';
-import { apolloClient, createUserQuery } from '../graph.service';
+import { useMutation } from '@vue/apollo-composable'
+
+import router from '../router'
+import createUserMutation from '../graphql/createUser.mutation.gql'
+import createCompanyMutation from '../graphql/createCompany.mutation.gql'
 
 export default {
     name: 'AddCompany',
     setup() {
         const state = reactive({
-            name: 'Rahul',
-            email: 'das'
-        })
+            user: {
+                name: '',
+                email: '',
+                company: ''
+            },
+            company: {
+                name: '',
+                website: '',
+                employeeCount: null,
+                industry: null,
+                benifits: {
+                    healthInsurance: {
+                        isProvided: false,
+                        sumCovered: null,
+                        familyCovered: false,
+                        parentsCovered: false,
+                        maternityAssist: false,
+                    },
+                    gymMembership: false,
+                    freeDOC: false,
+                    numberOfPaidLeaves: null,
+                    isWorkTimingFlexible: false,
+                    isRemoteFriendly: false
+                }
+
+            },
+            onStep1: false,
+            onStep2: true
+        });
 
         function enterUser() {
-            console.log('Enter');
-            apolloClient.query({ query: createUserQuery}).then(user => console.log(user))
-        }
+            /* createUser({ 
+                        "user" : {
+                            "name": state.user.name,
+                            "email": state.user.email,
+                            "company" : state.user.company
+                            }
+                        }); */
+            state.onStep1 = false;
+            state.onStep2 = true;
+         }
+
+         function enterCompany() {
+             createCompany({
+                 "company": {
+                        "name": state.company.name,
+                        "website": state.company.website,
+                        "employeeCount": state.company.employeeCount,
+                        "industry": state.company.industry,
+                        "benifits": {
+                            "healthInsurance": {
+                                "isProvided":state.company.isProvided,
+                                "sumCovered":state.company.sumCovered,
+                                "familyCovered":state.company.familyCovered,
+                                "parentsCovered":state.company.parentsCovered,
+                                "maternityAssist":state.company.maternityAssist,
+                            },
+                            "gymMembership": state.company.gymMembership,
+                            "freeDOC": state.company.freeDOC,
+                            "numberOfPaidLeaves": state.company.numberOfPaidLeaves,
+                            "isWorkTimingFlexible": state.company.isWorkTimingFlexible,
+                            "isRemoteFriendly": state.company.isRemoteFriendly
+                        }
+                 }
+             });
+         }
+            // eslint-disable-next-line no-unused-vars
+            const { mutate: createUser, onDone: onUserCreated } = useMutation(createUserMutation)
+            onUserCreated((res) => {
+                console.log('new', res.data.createUser);
+                })
+
+            const { mutate: createCompany, onDone: onCompanyCreated } = useMutation(createCompanyMutation)
+            onCompanyCreated((res) => {
+                console.log('new', res.data.createCompany);
+                router.push({ name: 'CompanyDetail', params: { companyId: res.data.createCompany.id } })
+                })
 
         return {
             state,
-            enterUser
+            enterUser,
+            enterCompany
         }
     }
     
@@ -39,6 +183,19 @@ export default {
 <style >
     .short-width {
         max-width: 30%;
-        margin-top: 50px;
+        margin: 50px;
+    }
+
+    .form-check {
+        width: max-content;
+        margin-bottom: 4px;
+    }
+
+    h5 {
+        margin: 45px 0;
+    }
+
+    .health-benifits {
+        margin-left: 3rem;
     }
 </style>

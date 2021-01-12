@@ -13,28 +13,4 @@ mutation createUser($user: UserInput!) {
   }
 }`
 
-const getCompaniesQuery = gql`
-        query {
-            company {
-              id
-              name
-              website
-              employeeCount
-              benifits {
-                gymMembership
-                freeDOC
-                numberOfPaidLeaves
-                isWorkTimingFlexible
-                isRemoteFriendly
-                healthInsurance {
-                  isProvided
-                  sumCovered
-                  familyCovered
-                  parentsCovered
-                  maternityAssist
-                }
-              }
-            }
-        }`;
-
-export { apolloClient, getCompaniesQuery, createUserQuery}
+export { apolloClient, createUserQuery}

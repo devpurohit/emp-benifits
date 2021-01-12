@@ -18,7 +18,7 @@ const routes = [
     path: '/company/:companyId',
     name: 'CompanyDetail',
     component: CompanyDetail
-  }
+    }
 ]
 
 const router = createRouter({

@@ -5,14 +5,14 @@ import { DefaultApolloClient } from '@vue/apollo-composable'
 import App from './App.vue'
 import router from './router'
 
-const apolloClient = new ApolloClient({
+const defaultClient = new ApolloClient({
     uri: 'http://localhost:8500/graphql', 
     cache: new InMemoryCache()
 });
 
 createApp({
-    setup () {
-        provide(DefaultApolloClient, apolloClient)
+    setup() {
+        provide(DefaultApolloClient, defaultClient)
       },
     render() {
         return h(App)

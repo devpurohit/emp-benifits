@@ -8,30 +8,25 @@
     </div>
 </template>
 <script>
-import { apolloClient, getCompaniesQuery } from '../graph.service'
+import { useQuery, useResult } from '@vue/apollo-composable'
+import getCompaniesQuery from '../graphql/getCompanies.query.gql'
 import router from '../router'
-
 export default {
     
     name: 'Home',
-     data: function () {
-                return {
-                companies: []
-                }
-  },
-    mounted () {
-        this.getCompanies();
-    },
-  methods: {
-        async getCompanies() {
-                const data1 = await apolloClient.query({ query: getCompaniesQuery});
-                const companyData = data1.data.company
-                this.companies =[...data1.data.company]
-                this.companies = companyData
+    methods: {
+            gotoCompany(id) {
+                router.push({ name: 'CompanyDetail', params: { companyId: id } })
+            }
         },
-        gotoCompany(id) {
-            router.push({ name: 'CompanyDetail', params: { companyId: id } })
+    setup() {
+        const { result } = useQuery(getCompaniesQuery)
+        const companies = useResult(result, null , data => data.company)
+
+        return {
+            companies
         }
+        
     }
     
 }
@@ -39,5 +34,9 @@ export default {
 <style >
     ul {
         list-style: none;
+    }
+
+    li:hover {
+        cursor: pointer;
     }
 </style>

@@ -1,0 +1,22 @@
+query getCompanies {
+     company {
+              id
+              name
+              website
+              employeeCount
+              benifits {
+                gymMembership
+                freeDOC
+                numberOfPaidLeaves
+                isWorkTimingFlexible
+                isRemoteFriendly
+                healthInsurance {
+                  isProvided
+                  sumCovered
+                  familyCovered
+                  parentsCovered
+                  maternityAssist
+                }
+              }
+            }
+        }

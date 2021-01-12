@@ -11,6 +11,9 @@ const resolvers = {
     },
     user() {
       return userModel.list()
+    },
+    getCompany(source, args) {
+      return companyModel.find(args.companyId)
     }
    },
    Mutation: {

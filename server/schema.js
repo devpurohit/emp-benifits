@@ -16,7 +16,7 @@ const typeDefs = gql`
 
   type HealthInsurance {
     isProvided: Boolean
-    sumCovered: Int
+    sumCovered: String
     familyCovered: Boolean
     parentsCovered: Boolean
     maternityAssist: Boolean
@@ -26,15 +26,16 @@ const typeDefs = gql`
         healthInsurance: HealthInsurance
         gymMembership: Boolean
         freeDOC: Boolean
-        numberOfPaidLeaves: Int
+        numberOfPaidLeaves: String
         isWorkTimingFlexible: Boolean
         isRemoteFriendly: Boolean
     }
 
   type Company {
+    id: ID!
     name: String
     website: String
-    employeeCount: Int
+    employeeCount: String
     benifits: Benifits
     industry: Industry
   }
@@ -42,13 +43,14 @@ const typeDefs = gql`
   input CompanyInput {
     name: String!
     website: String
-    employeeCount: Int
+    employeeCount: String
     benifits: InputBenifits
+    industry: Industry
   }
 
   input InputHealthInsurance {
      isProvided: Boolean
-    sumCovered: Int
+    sumCovered: String
     familyCovered: Boolean
     parentsCovered: Boolean
     maternityAssist: Boolean
@@ -58,7 +60,7 @@ const typeDefs = gql`
     healthInsurance: InputHealthInsurance
         gymMembership: Boolean
         freeDOC: Boolean
-        numberOfPaidLeaves: Int
+        numberOfPaidLeaves: String
         isWorkTimingFlexible: Boolean
         isRemoteFriendly: Boolean
   }
@@ -73,6 +75,7 @@ const typeDefs = gql`
   type Query {
     user: [User]
     company: [Company]
+    getCompany(companyId: String): Company
   }
   
   type Mutation {
