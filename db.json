@@ -200,6 +200,66 @@
           "maternityAssist": true
         }
       }
+    },
+    {
+      "id": "Qu5_dp-LsUj5r9MWkRUCz",
+      "name": "Byldd",
+      "website": "byldd.com",
+      "employeeCount": 25,
+      "benifits": {
+        "gymMembership": false,
+        "freeDOC": false,
+        "numberOfPaidLeaves": "21",
+        "isWorkTimingFlexible": true,
+        "isRemoteFriendly": true,
+        "healthInsurance": {
+          "isProvided": false,
+          "sumCovered": null,
+          "familyCovered": false,
+          "parentsCovered": false,
+          "maternityAssist": false
+        }
+      }
+    },
+    {
+      "id": "AFZwUX8Abjo0hStfDJtdn",
+      "name": "",
+      "website": "",
+      "employeeCount": 0,
+      "benifits": {
+        "gymMembership": false,
+        "freeDOC": false,
+        "numberOfPaidLeaves": null,
+        "isWorkTimingFlexible": false,
+        "isRemoteFriendly": false,
+        "healthInsurance": {
+          "isProvided": false,
+          "sumCovered": null,
+          "familyCovered": false,
+          "parentsCovered": false,
+          "maternityAssist": false
+        }
+      }
+    },
+    {
+      "id": "pLOf6cab-YqiOLbb_JJ6U",
+      "name": "Byldd",
+      "website": "byldd.com",
+      "employeeCount": 25,
+      "benifits": {
+        "gymMembership": false,
+        "freeDOC": false,
+        "numberOfPaidLeaves": "20",
+        "isWorkTimingFlexible": true,
+        "isRemoteFriendly": true,
+        "healthInsurance": {
+          "isProvided": false,
+          "sumCovered": null,
+          "familyCovered": false,
+          "parentsCovered": false,
+          "maternityAssist": false
+        }
+      }
     }
   ],
   "users": [
@@ -238,6 +298,24 @@
       "name": "Hola",
       "email": "email@abc.com",
       "company": "why"
+    },
+    {
+      "id": "vSB9dDuoBL3uSwR-ot0Cj",
+      "name": "rahul",
+      "email": "rahul@byldd.com",
+      "company": "Byldd"
+    },
+    {
+      "id": "sE4hCWPyRgvkEO3xwgtRH",
+      "name": "dsa",
+      "email": "dsa@dsa.com",
+      "company": "sda"
+    },
+    {
+      "id": "F-_cPYgjFs5o6sMFmYsb2",
+      "name": "Rahul",
+      "email": "rahul@byldd.com",
+      "company": "byldd"
     }
   ]
 }

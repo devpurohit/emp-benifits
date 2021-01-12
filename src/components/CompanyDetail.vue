@@ -1,5 +1,5 @@
-<template lang="" v-if="currentCompany">
-    <div class="short-width mx-auto" >
+<template lang="" >
+    <div class="short-width mx-auto" v-if="currentCompany">
         <h3>{{currentCompany.name}}</h3>
 
         <div class="company-details">
@@ -29,7 +29,7 @@
         <hr>
         </div>
 
-        <div class='wrapper mx-auto' v-if="state.comparisonData">
+        <div class='wrapper mx-auto' v-if="state.comparisonData && currentCompany" >
             <div class='package' v-for="company of state.comparisonData" :key="company.id">
                 <div class='name'>{{company.name}}</div>
                 <div class='price'>{{company.website}}</div>
