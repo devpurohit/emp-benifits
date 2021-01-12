@@ -13,6 +13,7 @@
 </template>
 <script>
 import { reactive } from 'vue';
+import { apolloClient, createUserQuery } from '../graph.service';
 
 export default {
     name: 'AddCompany',
@@ -24,6 +25,7 @@ export default {
 
         function enterUser() {
             console.log('Enter');
+            apolloClient.query({ query: createUserQuery}).then(user => console.log(user))
         }
 
         return {
