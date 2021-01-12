@@ -7,8 +7,9 @@ class Company {
     })
   }
 
+  // Always sorted
   list() {
-    return this.api.get('/companies').then(res => res.data)
+    return this.api.get('/companies?_sort=employeeCount').then(res => res.data)
   }
 
   find(id) {

@@ -102,7 +102,7 @@ export default {
                 name: '',
                 website: '',
                 employeeCount: null,
-                industry: null,
+                industry: 'IT',
                 benifits: {
                     healthInsurance: {
                         isProvided: false,
@@ -119,18 +119,18 @@ export default {
                 }
 
             },
-            onStep1: false,
-            onStep2: true
+            onStep1: true,
+            onStep2: false
         });
 
         function enterUser() {
-            /* createUser({ 
+            createUser({ 
                         "user" : {
                             "name": state.user.name,
                             "email": state.user.email,
                             "company" : state.user.company
                             }
-                        }); */
+                        });
             state.onStep1 = false;
             state.onStep2 = true;
          }
@@ -140,21 +140,21 @@ export default {
                  "company": {
                         "name": state.company.name,
                         "website": state.company.website,
-                        "employeeCount": state.company.employeeCount,
+                        "employeeCount": +state.company.employeeCount,
                         "industry": state.company.industry,
                         "benifits": {
                             "healthInsurance": {
-                                "isProvided":state.company.isProvided,
-                                "sumCovered":state.company.sumCovered,
-                                "familyCovered":state.company.familyCovered,
-                                "parentsCovered":state.company.parentsCovered,
-                                "maternityAssist":state.company.maternityAssist,
+                                "isProvided":state.company.benifits.healthInsurance.isProvided,
+                                "sumCovered":state.company.benifits.healthInsurance.sumCovered,
+                                "familyCovered":state.company.benifits.healthInsurance.familyCovered,
+                                "parentsCovered":state.company.benifits.healthInsurance.parentsCovered,
+                                "maternityAssist":state.company.benifits.healthInsurance.maternityAssist,
                             },
-                            "gymMembership": state.company.gymMembership,
-                            "freeDOC": state.company.freeDOC,
-                            "numberOfPaidLeaves": state.company.numberOfPaidLeaves,
-                            "isWorkTimingFlexible": state.company.isWorkTimingFlexible,
-                            "isRemoteFriendly": state.company.isRemoteFriendly
+                            "gymMembership": state.company.benifits.gymMembership,
+                            "freeDOC": state.company.benifits.freeDOC,
+                            "numberOfPaidLeaves": state.company.benifits.numberOfPaidLeaves,
+                            "isWorkTimingFlexible": state.company.benifits.isWorkTimingFlexible,
+                            "isRemoteFriendly": state.company.benifits.isRemoteFriendly
                         }
                  }
              });

@@ -35,7 +35,7 @@ const typeDefs = gql`
     id: ID!
     name: String
     website: String
-    employeeCount: String
+    employeeCount: Int
     benifits: Benifits
     industry: Industry
   }
@@ -43,7 +43,7 @@ const typeDefs = gql`
   input CompanyInput {
     name: String!
     website: String
-    employeeCount: String
+    employeeCount: Int
     benifits: InputBenifits
     industry: Industry
   }

@@ -4,19 +4,19 @@
       "id": "1",
       "name": "Adobe",
       "website": "www.adobe.com",
-      "employeeCount": 2300,
+      "employeeCount": 230,
       "industry": "IT",
       "benifits": {
         "healthInsurance": {
           "isProvided": true,
-          "sumCovered": 300000,
+          "sumCovered": "30000",
           "familyCovered": true,
           "parentsCovered": true,
           "maternityAssist": true
         },
         "gymMembership": true,
         "freeDOC": true,
-        "numberOfPaidLeaves": 21,
+        "numberOfPaidLeaves": "21",
         "isWorkTimingFlexible": false,
         "isRemoteFriendly": false
       }
@@ -29,14 +29,174 @@
       "benifits": {
         "gymMembership": true,
         "freeDOC": false,
-        "numberOfPaidLeaves": 21,
+        "numberOfPaidLeaves": "12",
         "isWorkTimingFlexible": false,
         "isRemoteFriendly": true,
         "healthInsurance": {
           "isProvided": true,
-          "sumCovered": 10000,
+          "sumCovered": "10000",
           "familyCovered": false,
           "parentsCovered": true,
+          "maternityAssist": true
+        }
+      }
+    },
+    {
+      "id": "2ChXwsm2HLj5InkwBZl5n",
+      "name": "Google",
+      "website": "google.com",
+      "employeeCount": 200,
+      "benifits": {
+        "gymMembership": true,
+        "freeDOC": false,
+        "numberOfPaidLeaves": "12",
+        "isWorkTimingFlexible": false,
+        "isRemoteFriendly": true,
+        "healthInsurance": {
+          "isProvided": true,
+          "sumCovered": "20000",
+          "familyCovered": true,
+          "parentsCovered": false,
+          "maternityAssist": false
+        }
+      }
+    },
+    {
+      "id": "j1cQokLFNz8B57zDS5TmO",
+      "name": "Facebook",
+      "website": "fb.com",
+      "employeeCount": 180,
+      "benifits": {
+        "gymMembership": true,
+        "freeDOC": false,
+        "numberOfPaidLeaves": "15",
+        "isWorkTimingFlexible": true,
+        "isRemoteFriendly": false,
+        "healthInsurance": {
+          "isProvided": false,
+          "sumCovered": null,
+          "familyCovered": false,
+          "parentsCovered": false,
+          "maternityAssist": false
+        }
+      }
+    },
+    {
+      "id": "bjfDMsXoAsvv2mD9Sq9Pc",
+      "name": "Sentry",
+      "website": "sentry.io",
+      "employeeCount": 80,
+      "benifits": {
+        "gymMembership": false,
+        "freeDOC": false,
+        "numberOfPaidLeaves": "20",
+        "isWorkTimingFlexible": true,
+        "isRemoteFriendly": true,
+        "healthInsurance": {
+          "isProvided": false,
+          "sumCovered": null,
+          "familyCovered": false,
+          "parentsCovered": false,
+          "maternityAssist": false
+        }
+      }
+    },
+    {
+      "id": "lehoaTgpQS51dFeRtEeSp",
+      "name": "Zapier",
+      "website": "zapier.com",
+      "employeeCount": 60,
+      "benifits": {
+        "gymMembership": true,
+        "freeDOC": false,
+        "numberOfPaidLeaves": "30",
+        "isWorkTimingFlexible": true,
+        "isRemoteFriendly": true,
+        "healthInsurance": {
+          "isProvided": false,
+          "sumCovered": null,
+          "familyCovered": false,
+          "parentsCovered": false,
+          "maternityAssist": false
+        }
+      }
+    },
+    {
+      "id": "bMADoDO5uiVp0u9F6sLRW",
+      "name": "Gitlab",
+      "website": "gitlab.com",
+      "employeeCount": 50,
+      "benifits": {
+        "gymMembership": true,
+        "freeDOC": false,
+        "numberOfPaidLeaves": "16",
+        "isWorkTimingFlexible": true,
+        "isRemoteFriendly": true,
+        "healthInsurance": {
+          "isProvided": true,
+          "sumCovered": "15000",
+          "familyCovered": true,
+          "parentsCovered": false,
+          "maternityAssist": true
+        }
+      }
+    },
+    {
+      "id": "MBJEUECDnYE0zcITw-Lsj",
+      "name": "Mircosoft",
+      "website": "ms.com",
+      "employeeCount": 250,
+      "benifits": {
+        "gymMembership": true,
+        "freeDOC": true,
+        "numberOfPaidLeaves": "13",
+        "isWorkTimingFlexible": false,
+        "isRemoteFriendly": false,
+        "healthInsurance": {
+          "isProvided": true,
+          "sumCovered": "25000",
+          "familyCovered": true,
+          "parentsCovered": true,
+          "maternityAssist": true
+        }
+      }
+    },
+    {
+      "id": "-T78-0kRBS4eSswdlUoTL",
+      "name": "BOA",
+      "website": "boa.com",
+      "employeeCount": 120,
+      "benifits": {
+        "gymMembership": false,
+        "freeDOC": true,
+        "numberOfPaidLeaves": "10",
+        "isWorkTimingFlexible": false,
+        "isRemoteFriendly": false,
+        "healthInsurance": {
+          "isProvided": true,
+          "sumCovered": "35000",
+          "familyCovered": true,
+          "parentsCovered": false,
+          "maternityAssist": true
+        }
+      }
+    },
+    {
+      "id": "3yMDUlAzaVQ-ITVacLqjF",
+      "name": "Paymt",
+      "website": "paytm.com",
+      "employeeCount": 115,
+      "benifits": {
+        "gymMembership": false,
+        "freeDOC": false,
+        "numberOfPaidLeaves": "10",
+        "isWorkTimingFlexible": true,
+        "isRemoteFriendly": false,
+        "healthInsurance": {
+          "isProvided": true,
+          "sumCovered": "15000",
+          "familyCovered": false,
+          "parentsCovered": false,
           "maternityAssist": true
         }
       }
@@ -66,6 +226,18 @@
       "name": "Malini",
       "email": "malini@deloitte.com",
       "company": "Deloitte"
+    },
+    {
+      "id": "nQUGaDV-leeflEQMscqWy",
+      "name": "Dev",
+      "email": "locked@abc.com",
+      "company": "Scronter"
+    },
+    {
+      "id": "qZRkU3-26um09TuZYmDbY",
+      "name": "Hola",
+      "email": "email@abc.com",
+      "company": "why"
     }
   ]
 }

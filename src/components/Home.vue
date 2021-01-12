@@ -1,8 +1,8 @@
 <template lang="">
-    <div>    
+    <div class="home">    
         <ul v-if="companies">
-            <li v-for="item in companies" :key="item.id" @click="gotoCompany(item.id)">
-                {{ item.name }} - {{ item.employeeCount }} - {{ item.website }}
+            <li v-for="(company, index) in companies" :key="company.id" @click="gotoCompany(company.id,index)">
+                {{ company.name }} 
             </li>
         </ul>
     </div>
@@ -15,8 +15,18 @@ export default {
     
     name: 'Home',
     methods: {
-            gotoCompany(id) {
-                router.push({ name: 'CompanyDetail', params: { companyId: id } })
+            gotoCompany(id, index) {
+                // Sending data directly here so no api call needed. 
+                let comparisonData;
+                if(index === 0) {
+                    comparisonData = this.companies.slice(0,3);
+                } else if(index === this.companies.length-1) {
+                    // No checking here, so let's keep atleast 3 companies in the data
+                    comparisonData = this.companies.slice(this.companies.length - 3)
+                } else {
+                    comparisonData = this.companies.slice(index-1,index+2);
+                }
+                router.push({ name: 'CompanyDetail', params: { companyId: id, companiesData: JSON.stringify(comparisonData) } })
             }
         },
     setup() {
@@ -32,11 +42,15 @@ export default {
 }
 </script>
 <style >
-    ul {
+    .home {
+        display: flex;
+        justify-content: center;
+    }
+  .home  ul {
         list-style: none;
     }
 
-    li:hover {
+   .home   li:hover {
         cursor: pointer;
     }
 </style>
