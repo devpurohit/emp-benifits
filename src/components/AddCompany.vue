@@ -17,7 +17,13 @@
                 <input type="text" class="form-control" id="name" placeholder="Name" v-model="state.company.name">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="website" placeholder="Website" v-model="state.company.website">
+                <input type="text" class="form-control " id="website" placeholder="Website" 
+                       v-model="state.company.website"
+                       v-bind:class="{ 'is-invalid': state.company.website !== '' && (state.user.email.split('@')[1] !== state.company.website.split('www.')[1])}"
+                       >
+                <div class="invalid-feedback" >
+                Company's domain doesn't match with the user's email.
+                </div>
             </div>
             <div class="form-group">
                 <input type="number" class="form-control" id="employeeCount" placeholder="Employee Count" v-model="state.company.employeeCount">
